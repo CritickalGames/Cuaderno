@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ingresar Datos</title>
+	<meta charset="utf-8">
+	<script>
+		function enviarJSON(){
+            let resultado = document.querySelector('.resultado');
+            let login = document.querySelector('#usuariologin');
+            let pass = document.querySelector('#usuariopass');            
+            let nombre = document.querySelector('#usuarionombre');
+            let email = document.querySelector('#usuarioemail');
+               
+            // Creando el objeto  XHR o
+            let xhr = new XMLHttpRequest();
+            let url = "index.php";
+        
+            // Abrir la conexión
+            xhr.open("POST", url, true);
+  
+            // Enviar la solicitud en el encabezado con los datos
+            xhr.setRequestHeader("Content-Type", "application/json");
+  
+            // Create a state change callback
+            //Crea una funcion para controlar el resultado 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert('Datos ingresados');
+                  }
+            };  
+  
+            // Contertir datos en un JSON1
+            var datos = JSON.stringify({ "login": login.value, "pass": pass.value, "nombre": nombre.value, "email": email.value });
+  
+            // Enviar los datos en la solicitud
+            xhr.send(datos);
+        }
+	</script>
+</head>
+<body>	
+		<label for="usuariologin">Login:</label><input id="usuariologin" type="text"><br>
+		<label for="usuariopass">Pass:</label><input id="usuariopass" type="password"><br>
+		<label for="usuarionombre">Nombre:</label><input id="usuarionombre" type="text"><br>
+		<label for="usuarioemail">eMail:</label><input id="usuarioemail" type="email"><br>
+		<input value="Login" type="button" onclick="enviarJSON()">		     
+</body>
+</html>		

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inicio de Sesión</title>
+	<meta charset="utf-8">
+	<script>
+		function login(){
+			var objXMLHttpRequest = new XMLHttpRequest();
+			objXMLHttpRequest.onreadystatechange = function() {
+  				if(objXMLHttpRequest.readyState === 4) {
+    				if(objXMLHttpRequest.status === 200) {
+    					const text = objXMLHttpRequest.responseText;
+    					if (text === "[]"){
+    						document.getElementById("mostrar").innerHTML = "No hay nadie";
+    					}else{
+    						const myArr = JSON.parse(text);
+							document.getElementById("mostrar").innerHTML = "Hola: " + myArr[0].nombre;
+    					}
+		    		}else{
+          			alert('Error Code: ' +  objXMLHttpRequest.status);
+          			alert('Error Message: ' + objXMLHttpRequest.statusText);
+    				}
+  				}
+			}
+			var usuariologin = document.getElementById("usuariologin").value; 
+			var usuariopass = document.getElementById("usuariopass").value; 
+
+			objXMLHttpRequest.open('GET', 'index.php/usuario/login?u=' + usuariologin + '&p=' + usuariopass);
+			objXMLHttpRequest.send();
+		}
+	</script>
+</head>
+<body>
+		<input id="usuariologin" type="text">
+		<input id="usuariopass" type="password">
+		<input value="Login" type="button" onclick="login()">
+		<div id="mostrar"></div>		
+</body>
+</html>	
