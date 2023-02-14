@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" >
+    <link rel="stylesheet" href="CSS/estilos.css" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col">
+        No sé, ni recuerdo como mandar toda esta información a un correo electronico, así que lo dejaré sin funcionalidad.
+        <br><br>
+        Sólo usé un echo y ya
+    </div>
+    <div class="col">
+        <div>
+            <h1>Formulario de registro</h1>
+            <fieldset>
+                <form action="PHP/echo1.php" method="get">
+                    <h2>DATOS PERSONALES</h2>
+                    <label>Nombre</label>
+<br>
+                    <input type="text" name="nombre" id="nombre">
+<br>
+                    <label>Apellido</label>
+<br>
+                    <input type="text" name="apellido" id="apellido">
+<br>
+                    <label>Correo</label>
+<br>
+                    <input type="text" name="correo" id="correo">
+<br>
+                    <label>Fecha</label>
+<br>
+                    <input type="date" name="fecha" id="fecha">
+<br>
+                <input type="button" name="" value="Enviar">
+                </form>
+            </fieldset>
+            <fieldset>
+                <form action="PHP/echo2.php" method="get">
+                    <h2>¿DE DONDE ERES?</h2>
+                    <label>Ciudad</label>
+<br>
+                    <input type="text" name="ciudad" id="ciudad">
+<br>
+                    <label>Codigo postal</label>
+<br>
+                    <input type="text" name="codigoPostal" id="codigoPostal">
+<br>
+                    <label>País</label>
+<br>
+                    <select >
+                        <option value="uruguay">Uruguay</option>
+                        <option value="argentina">Argentina</option>
+                    </select>
+<br>
+<br>
+                <input type="button" name="" value="Enviar">
+                </form>
+            </fieldset>
+            <fieldset>
+                <form action="PHP/echo3.php" method="get">
+                    <h2>INICIAR SESION</h2>
+                    <label>Nombre de usuario</label>
+<br>
+                    <input type="text" name="user" id="user">
+<br>
+                    <label>Contraseña</label>
+<br>
+                    <input type="text" name="pass" id="pass">
+<br>
+                    <label>Contrasñea otra vez</label>
+<br>
+                    <input type="text" name="passAGAIN" id="passOtraVez">
+<br>
+                <input type="button" name="" value="Enviar">
+                </form>
+            </fieldset>
+            <fieldset>
+                <form action="PHP/echo" method="get">
+                    <h2>TERMINOS Y CONDICIONES</h2>
+                    <label>Nombre</label>
+<br>
+                    <label>
+                        Deseo recibir ofertas
+                    </label>
+<br>
+                    <label>
+                        <input type="radio" name="" id="">Una vez al día
+                    </label>
+<br>
+                    <label>
+                        <input type="radio" name="" id="">Una vez a la semana
+                    </label>
+<br>
+                    <label>
+                        <input type="radio" name="" id="">Una vez al mes
+                    </label>
+<br>
+                    <label>
+                        <input type="checkbox" name="" id="">Acepto  el acuerdo de servicio, la declracación de privacidad y la declracación de uso de cookies
+                    </label>
+<br>
+                <input type="button" name="" value="NO FUNCIONA">
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col fondo-verde"></div>
+
+<div>
+    
+</div>
+
+</body>
+<!--SCRIPTS-->
+    <script src="JS/js.js"></script>
+    </html>

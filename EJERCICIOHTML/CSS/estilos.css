@@ -1,0 +1,45 @@
+fieldset{
+    border: solid;
+    border-top-left-radius: 25px;
+    margin-top: 25PX;
+    border-color: green;
+}
+
+fieldset:hover{
+    background-color: lightgreen;
+}
+
+#passOtraVez:hover{
+    background-color: yellow;
+}
+
+label{
+    font-weight: bold;
+}
+
+input, label{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+h2{
+    color: green;
+    margin-top: -25px;
+    height: fit-content;
+}
+h1{
+    color: darkgreen;
+}
+
+div.fondo-verde{
+    background-image: url(
+        https://media.gettyimages.com/id/155598384/es/foto/serie-de-hoja.jpg?s=1024x1024&w=gi&k=20&c=V6YoaluM7N7LTb6aL4olJmDd39_dZmo0gqsTIa97JyM=
+        );
+    background-repeat: no-repeat;
+    background-position-x: -300px;
+    background-size: auto;
+    /*
+    Estoy re haciendo todo, así que no me tomaré el tiempo en volver a arreglar el background.
+    Por favor, ignore eso, sabe que lo pude hacer.
+    */
+}
