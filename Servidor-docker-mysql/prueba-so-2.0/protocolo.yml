@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   tasks: 
+   
+     - include_tasks: comun.yml
+    
+ - hosts: docker
+   tasks: 
+    
+     - include_tasks: contenedor-docker/docker.yml
+     - include_tasks: contenedor-docker/contenedor.yml
+     - include_tasks: contenedor-docker/configFIRE.yml
+    
+ - hosts: mysql
+   tasks: 
+    
+      - include_tasks: servidor-mysql/servidor-mysql.yml
+

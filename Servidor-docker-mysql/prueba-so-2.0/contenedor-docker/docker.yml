@@ -1,0 +1,14 @@
+---
+   - name: Docker
+     yum:
+       name:
+         - docker
+         - docker-compose
+       state: present
+
+   - name: Iniciar Docker
+     systemd:
+       state: started
+       name: docker
+       enabled: yes
+

@@ -1,0 +1,16 @@
+---
+   - name: pasar repo de instalacion
+     copy:
+      src: mysql-community.repo
+      dest: /etc/yum.repos.d/ 
+               
+   - name: paquetes
+     yum:
+       name:
+         - mysql-community-server
+          
+   - name: Iniciar mysql
+     systemd:
+       state: started
+       name: mysqld.service
+       enabled: yes

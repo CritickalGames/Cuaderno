@@ -1,0 +1,103 @@
+PARA VER LA CONTRASEÑA GENREADA AUTOMATICAMENTE AL INSTALAR MYSQ. ES SÓLO PARA EL ROOT Y DE USO ÚNICO
+---cat  /var/log/mysqld.log | grep 'password' 
+
+PARA INGRESAR COMO ROOT DE MYSQL'
+---mysql -u root -p
+
+hace que la mysql rooter pasword dispense de caracteres especiales.
+---set global validate_password_policy=0;
+
+CAMBIA LA CONRASEÑA DEL ROOT
+---ALTER USER 'root'@'localhost' IDENTIFIED BY 'YOUR-NEW-PASSWORD';
+
+DEPUÉS ACTUALIZAR LA CONTRASEÑA, SALIMOS
+---exit
+
+REINICIAR EL SERVICIO MYSQL
+---systemctl restart  mysqld.service
+------------------------------------
+REPETIR PROCESO EN TODOS LOS MYSQL
+------------------------------------
+
+[EN EL MAESTRO]
+-----
+Accedemos como root
+---mysql -u root -p
+
+
+hace que la mysql rooter pasword dispense de caracteres especiales.
+---set global validate_password_policy=0;
+
+
+y creamos un usuario para el servidor esclavo
+---create user 'repl'@'%' identified by 'repl_Pass1';
+
+OTORGAR LOS PERMISOS AL USUARIO DEL ESCLAVO
+---GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+ 
+SALIMOS
+---quit
+
+MODIFICAR
+---nano /etc/my.cnf
+
+AGREGAR 
+
+server-id = 1
+log_bin = master-bin
+log_bin_index = master-bin.index
+[PUTAMENTE OPCIONAL, 25 HORAS PARA AVERIGUARLO XD, SE SACO PARA QUE COPIE TODAS LAS BASES DE DATOS Y DEMAS]
+binlog_do_db = NOMBRE-DE-LA-BASE-DE-DATOS-A-COPIAR
+binlog_ignore_db = mysql
+
+
+REINICIAR EL SERVICIO MYSQL
+---systemctl restart  mysqld
+
+PERMITIR SOLO EL PUERTO 3306
+---firewall-cmd --zone=public --add-port=3306/tcp --permanent
+
+REINICIAMOS FIREWALL
+---firewall-cmd --reload
+
+SI SE DESEA COMPROBAR LOS PUERTOS DISPONIBLES
+---firewall-cmd --list-ports
+
+ACCEDEMOS COMO ROOT MYSQL
+---mysql -u root -p
+
+Y VERIFICAMOS EL ESTADO DEL SERVIDOR MAESTRO
+---show master status; <-- LA POSICION Y EL NOMBRE DEL ARCHIVO ES MUY IMPORTANTE POR LO QUE SE DEBE ANOTAR, SE USARAN MAS ADELANTE
+
+
+Y SALIMOS
+---quit
+
+
+[EN EL ESCLAVO]
+
+MODIFICAR
+---nano /etc/my.cnf
+
+AGREGAMOS
+
+server-id = 2
+relay-log = slave-relay-bin
+relay-log-index = slave-relay-bin.index
+
+REINICIAMOS EL SERVICIO MYSQL
+---systemctl restart mysqld
+
+ACCEDEMOS COMO ROOT MYSQL
+---mysql -u root -p
+
+NOS CONECTAMOS CON EL MAESTRO 
+---change master to master_host='IP DEL MAESTRO', master_port=3306, master_user='repl', master_password='repl_Pass1', master_log_file='master-bin.000002', master_log_pos=154;
+
+INICIAMOS LA ESCLAVITUD DE SERVIDORES
+---start slave;
+
+VEMOS INFORMACION DE LA ESCLAVITUD XD:
+---show slave status\G; 
+
+FUENTES: https://www.proxadmin.es/blog/replicar-mysql-maestro-esclavo-en-centos/

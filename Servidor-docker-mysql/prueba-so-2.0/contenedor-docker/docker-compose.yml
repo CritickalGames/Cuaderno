@@ -1,0 +1,23 @@
+version: "3"
+services:
+  php1:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php-server1
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - ./html1:/var/www/html
+
+  php2:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php-server2
+    restart: always
+    ports:
+      - 8082:80
+    volumes:
+      - ./html2:/var/www/html

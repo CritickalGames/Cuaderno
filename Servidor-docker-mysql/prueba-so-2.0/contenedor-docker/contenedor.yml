@@ -1,0 +1,24 @@
+---
+    - name: copiar Dockerfile
+      copy:
+       src: Dockerfile
+       dest: /root/app-my/
+
+    - name: copiar docker-compose
+      copy:
+       src: docker-compose.yml
+       dest: /root/app-my/
+
+    - name: levantar contenedores
+      shell: 'cd app-my && docker-compose up -d'
+
+    - name: copiar pagina1
+      copy:
+       src: index.php
+       dest: /root/app-my/html1/
+
+    - name: copiar pagina2
+      copy:
+       src: index.php
+       dest: /root/app-my/html2/
+
