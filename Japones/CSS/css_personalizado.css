@@ -1,0 +1,171 @@
+h1,h2,h3,h4,h5, button, .amiibo-name{
+    font-family: 'Bitter', serif;
+
+}
+
+.My_card-border{
+    border: solid 10px white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+.My_card-border:hover{
+    transform: scale(1.05);
+}
+
+.img-My_carrusel{
+    margin-left: 25% ;
+    width: 50%;
+    height: 300px;
+}
+
+.text-My_shadow{
+    text-shadow: 0 3px 3px rgba(0,0,0,0.6);
+}
+
+#My_birthday{
+    background-color: rgb(219, 26, 26);
+    position: relative;
+    margin-top: -20px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#My_birthday img{
+    position: relative;
+    margin-top: -30px;
+}
+#My_cartas{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%,
+                                    rgba(99,196,255,1) 57%);
+    background-repeat: repeat-x;
+    background-size: 75%;
+    margin-top: -20px;
+}
+#My_footer{
+    background: url(https://raw.githubusercontent.com/marcosrivasr/bootstrap5-website/master/ejercicio%20final/img/bg-04.png);
+    background-color: rgb(224, 144, 24);
+    background-size: 50px 50px;
+}
+
+
+#My_navbar{
+    z-index: 1;
+}
+#My_ribbon{
+    background-color: rgb(219, 26, 26);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(131, 21, 21, 0.5) 25px, rgba(131, 21, 21, 0.5) 40px);
+}
+#My_ribbon::after{
+    content: '';
+    background-color: transparent;
+    display: block;
+    height: 20px;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    left: auto;
+    margin-top: -40px;
+}
+#My_separator-final{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+#My_separator-final .content{
+    background: url(https://raw.githubusercontent.com/marcosrivasr/bootstrap5-website/master/ejercicio%20final/img/bg-03.png);
+    width: 110%;
+    height: 100px;
+    margin-left: -5%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+#My_separator-My_ribbon{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+#My_separator-My_ribbon .content{
+    width: 150%;
+    height: 150px;
+    margin-left: -25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;   
+}
+
+
+
+#menu ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+   }
+   
+   /* items del menu */
+   
+   #menu ul li {
+    background-color:#2e518b;
+   }
+   
+   /* enlaces del menu */
+   
+   #menu ul a {
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    font-weight:400;
+    font-size:15px;
+    padding:10px;
+    font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+   }
+   
+   /* items del menu */
+   
+   #menu ul li {
+    position:relative;
+    float:left;
+    margin:0;
+    padding:0;
+   }
+   
+   /* efecto al pasar el ratón por los items del menu */
+   
+   #menu ul li:hover {
+    background:#5b78a7;
+   }
+
+
+   /* menu desplegable */
+
+#menu ul ul {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#eee;
+    padding:0;
+   }
+   
+   /* items del menu desplegable */
+   
+   #menu ul ul li {
+    float:none;
+    width:150px
+   }
+   
+   /* enlaces de los items del menu desplegable */
+   
+   #menu ul ul a {
+    line-height:120%;
+    padding:10px 15px;
+   }
+   
+   /* items del menu desplegable al pasar el ratón */
+   
+   #menu ul li:hover > ul {
+    display:block;
+   }
